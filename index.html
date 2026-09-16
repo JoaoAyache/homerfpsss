@@ -38,11 +38,11 @@
 
   .page{
     width:100%;
-    max-width:440px;
     display:flex;
     flex-direction:column;
-    gap:28px;
   }
+  #screen-hub{max-width:440px; gap:28px;}
+  #screen-config{max-width:460px; gap:26px;}
 
   h1,h2,h3{font-family:'Rajdhani', system-ui, sans-serif; margin:0; text-wrap:balance;}
 
@@ -165,6 +165,12 @@
     margin-top:4px;
     transform:rotate(-3deg);
   }
+  .tag-config{
+    font-family:'Permanent Marker', cursive;
+    color:var(--accent-2);
+    font-size:15px;
+    transform:rotate(-3deg);
+  }
   .tagline{
     position:relative;
     text-align:center;
@@ -203,6 +209,7 @@
     text-transform:uppercase;
     color:var(--text-muted);
     padding-left:4px;
+    margin-bottom:10px;
   }
 
   .links{display:flex; flex-direction:column; gap:12px;}
@@ -219,6 +226,12 @@
     transition:transform 0.15s ease, border-color 0.15s ease;
   }
   .link-card:hover{transform:translateY(-2px); border-color:rgba(230,210,255,0.25);}
+  button.link-card{
+    width:100%;
+    text-align:left;
+    font:inherit;
+    cursor:pointer;
+  }
   .link-icon{
     width:44px;height:44px;flex:none;
     border-radius:12px;
@@ -262,7 +275,7 @@
     margin-top:2px;
   }
 
-  /* ---------- SCHEDULE EDIT ---------- */
+  /* ---------- INLINE EDIT (shared) ---------- */
   .section-row{display:flex; align-items:center; justify-content:space-between; gap:8px;}
   .edit-btn{
     display:inline-flex; align-items:center; gap:5px;
@@ -390,7 +403,101 @@
     margin-bottom:4px;
   }
 
-  /* ---------- PAGER NAV ---------- */
+  /* ---------- CONFIG SCREEN ---------- */
+  #screen-config h1,#screen-config h2{font-family:'Rajdhani', system-ui, sans-serif; margin:0; text-wrap:balance;}
+  header.top{display:flex; flex-direction:column; gap:10px; align-items:center; text-align:center; padding-top:4px;}
+  h1.title{font-size:30px; font-weight:700;}
+  h1.title em{
+    font-style:normal;
+    background:linear-gradient(90deg, var(--accent-2), var(--accent));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .subtitle{color:var(--text-muted); font-size:13.5px; max-width:34ch;}
+
+  .note{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px 14px;
+    border-radius:14px;
+    background:var(--surface);
+    border:1px dashed rgba(230,210,255,0.18);
+    color:var(--text-muted);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .note svg{flex:none; width:16px; height:16px; margin-top:1px; color:var(--accent-2);}
+
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .item{
+    padding:14px;
+    border-radius:14px;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .item-icon{
+    width:30px;height:30px;
+    border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--accent-soft);
+    color:var(--accent-2);
+  }
+  .item-icon svg{width:16px;height:16px;}
+  .item-label{font-size:11.5px; color:var(--text-muted); font-weight:600;}
+  .item-value{font-size:13.5px; font-weight:700; color:var(--text);}
+  .item-value.placeholder{color:var(--text-muted); font-weight:600; font-style:italic;}
+
+  .rows{display:flex; flex-direction:column; gap:8px;}
+  .row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+  }
+  .row .k{font-size:13.5px; font-weight:600;}
+  .row .v{font-size:13px; color:var(--text-muted); text-align:right;}
+  .row .v.placeholder{font-style:italic;}
+
+  .cfg-editor{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:8px;
+  }
+  .cfg-editor-row{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    align-items:center;
+    gap:10px;
+    padding:4px 2px;
+  }
+  .cfg-editor-row label{
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--text);
+  }
+  .cfg-editor-row input[type="text"]{
+    width:100%;
+    padding:8px 10px;
+    border-radius:9px;
+    border:1px solid var(--surface-line);
+    background:var(--surface);
+    color:var(--text);
+    font-family:'Manrope', sans-serif;
+    font-size:12.5px;
+  }
+  .cfg-editor-row input[type="text"]::placeholder{color:rgba(182,164,221,0.45);}
+
+  /* ---------- PAGER NAV (shared) ---------- */
   .pager{
     position:fixed;
     left:50%;
@@ -418,6 +525,7 @@
     background:rgba(255,255,255,0.05);
     transition:background 0.15s ease, transform 0.15s ease;
   }
+  button.pager-arrow{border:none; padding:0; font:inherit;}
   .pager-arrow svg{width:18px;height:18px;}
   .pager-arrow:hover{background:rgba(255,255,255,0.1); transform:translateY(-1px);}
   .pager-arrow.disabled{
@@ -435,7 +543,7 @@
   }
 </style>
 
-<div class="page">
+<div class="page" id="screen-hub">
 
   <div class="hero">
     <div class="badge-row">
@@ -455,7 +563,7 @@
   </div>
 
   <div>
-    <div class="section-label" style="margin-bottom:10px;">Onde me achar</div>
+    <div class="section-label">Onde me achar</div>
     <div class="links">
       <a class="link-card tiktok" href="https://www.tiktok.com/@homerfpsss" target="_blank" rel="noopener">
         <span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.78-1.47-1.9-1.6-3.14h-3.03v13.6c0 1.46-1.19 2.65-2.65 2.65a2.65 2.65 0 1 1 0-5.3c.25 0 .5.04.73.1V10.6a5.7 5.7 0 0 0-.73-.05 5.68 5.68 0 0 0 0 11.36 5.68 5.68 0 0 0 5.68-5.68V9.01a8.1 8.1 0 0 0 4.6 1.43V7.4a4.85 4.85 0 0 1-3-1.58Z"/></svg></span>
@@ -484,43 +592,35 @@
         <svg class="link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
       </a>
 
-      <a class="link-card" href="https://claude.ai/artifact/WLuy7P36AccgAXcU9SaKmm">
+      <button type="button" class="link-card" id="goToConfigBtn">
         <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-2)"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1.1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.6-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.6 1Z"/></svg></span>
         <span class="link-body">
           <span class="link-title">Configurações</span>
-          <span class="link-sub">Setup, periféricos e configs de jogo</span>
+          <span class="link-sub">Configs do FiveM</span>
         </span>
         <svg class="link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-      </a>
+      </button>
     </div>
   </div>
 
   <div>
-    <div class="section-label section-row" style="margin-bottom:10px;">
+    <div class="section-label section-row">
       <span>Agenda da semana</span>
       <button class="edit-btn" id="editScheduleBtn" type="button" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
         Editar
       </button>
     </div>
-    <div class="schedule" id="scheduleGrid"><!--SCHEDULE_CELLS_START-->
-      <div class="day"><div class="d">SEG</div><div class="t"></div></div>
-      <div class="day"><div class="d">TER</div><div class="t"></div></div>
-      <div class="day"><div class="d">QUA</div><div class="t"></div></div>
-      <div class="day"><div class="d">QUI</div><div class="t"></div></div>
-      <div class="day"><div class="d">SEX</div><div class="t"></div></div>
-      <div class="day"><div class="d">SAB</div><div class="t"></div></div>
-      <div class="day"><div class="d">DOM</div><div class="t"></div></div>
-    <!--SCHEDULE_CELLS_END--></div>
+    <div class="schedule" id="scheduleGrid"><!--SCHEDULE_CELLS_START--><div class="day on"><div class="d">SEG</div><div class="t">23:00</div></div><div class="day"><div class="d">TER</div><div class="t"></div></div><div class="day"><div class="d">QUA</div><div class="t"></div></div><div class="day"><div class="d">QUI</div><div class="t"></div></div><div class="day"><div class="d">SEX</div><div class="t"></div></div><div class="day"><div class="d">SAB</div><div class="t"></div></div><div class="day"><div class="d">DOM</div><div class="t"></div></div><!--SCHEDULE_CELLS_END--></div>
     <p class="schedule-note" id="scheduleNote">Agenda em atualização — entra no Discord pra ser avisado quando eu for ao vivo.</p>
 
     <div class="schedule-editor" id="scheduleEditor" hidden></div>
   </div>
 
-  <script id="schedule-data" type="application/json">{"days":[{"key":"SEG","on":false,"time":"","note":""},{"key":"TER","on":false,"time":"","note":""},{"key":"QUA","on":false,"time":"","note":""},{"key":"QUI","on":false,"time":"","note":""},{"key":"SEX","on":false,"time":"","note":""},{"key":"SAB","on":false,"time":"","note":""},{"key":"DOM","on":false,"time":"","note":""}]}</script>
+  <script id="schedule-data" type="application/json">{"days":[{"key":"SEG","on":true,"time":"23:00","note":"LIVE"},{"key":"TER","on":false,"time":"","note":""},{"key":"QUA","on":false,"time":"","note":""},{"key":"QUI","on":false,"time":"","note":""},{"key":"SEX","on":false,"time":"","note":""},{"key":"SAB","on":false,"time":"","note":""},{"key":"DOM","on":false,"time":"","note":""}]}</script>
 
   <div>
-    <div class="section-label" style="margin-bottom:10px;">Clipes em destaque</div>
+    <div class="section-label">Clipes em destaque</div>
     <div class="clips">
       <div class="clip">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 9v6l5-3Z" fill="currentColor" stroke="none"/></svg>
@@ -544,18 +644,150 @@
 
 </div>
 
+<div class="page" id="screen-config" hidden>
+
+  <header class="top">
+    <span class="tag-config">homerps</span>
+    <h1 class="title">Minhas <em>configurações</em></h1>
+    <p class="subtitle">Setup, periféricos e configs de jogo que mais me perguntam na live.</p>
+  </header>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+    Página em montagem — os campos abaixo são exemplo de estrutura. Manda os valores reais (specs, periféricos, sensibilidade) que eu preencho certinho.
+  </div>
+
+  <div>
+    <div class="section-label">Setup (PC)</div>
+    <div class="grid">
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <span class="item-label">Processador</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 7V5M12 7V5M17 7V5"/></svg></span>
+        <span class="item-label">Placa de vídeo</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6"/></svg></span>
+        <span class="item-label">Memória RAM</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg></span>
+        <span class="item-label">Armazenamento</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">Periféricos</div>
+    <div class="grid">
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="3" width="10" height="18" rx="5"/><path d="M12 3v7"/></svg></span>
+        <span class="item-label">Mouse</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 11h.01M11 11h.01M15 11h.01M9 14h6"/></svg></span>
+        <span class="item-label">Teclado</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-1v-6h3M4 18v-5h3v6H5a2 2 0 0 1-2-2Z"/></svg></span>
+        <span class="item-label">Headset</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <span class="item-label">Monitor</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="configs-fivem">
+    <div class="section-label section-row">
+      <span>Configs de FiveM</span>
+      <button class="edit-btn" id="editCfgBtn" type="button" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Editar
+      </button>
+    </div>
+    <div class="rows" id="cfgRows"><!--CFG_ROWS_START--><div class="row"><span class="k">Sensibilidade</span><span class="v">800 dpi / -41</span></div><div class="row"><span class="k">Resolução</span><span class="v placeholder">a definir</span></div><div class="row"><span class="k">Gráficos</span><span class="v placeholder">a definir</span></div><div class="row"><span class="k">Mira fixa</span><span class="v placeholder">a definir</span></div><div class="row"><span class="k">Mod de som</span><span class="v placeholder">a definir</span></div><div class="row"><span class="k">.cfg</span><span class="v placeholder">a definir</span></div><!--CFG_ROWS_END--></div>
+
+    <div class="cfg-editor" id="cfgEditor" hidden></div>
+  </div>
+
+  <script id="cfg-data" type="application/json">{"items":[{"label":"Sensibilidade","value":"800 dpi / -41"},{"label":"Resolução","value":""},{"label":"Gráficos","value":""},{"label":"Mira fixa","value":""},{"label":"Mod de som","value":""},{"label":".cfg","value":""}]}</script>
+
+  <footer>Configurações atualizadas periodicamente — fica de olho.</footer>
+
+</div>
+
 <nav class="pager" aria-label="Navegar entre páginas">
-  <span class="pager-arrow disabled" aria-disabled="true" aria-label="Já é a primeira página">
+  <button type="button" class="pager-arrow disabled" id="pagerPrev" aria-label="Página anterior">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-  </span>
+  </button>
   <span class="pager-dots">
-    <span class="pager-dot active"></span>
-    <span class="pager-dot"></span>
+    <span class="pager-dot active" data-screen="hub"></span>
+    <span class="pager-dot" data-screen="config"></span>
   </span>
-  <a class="pager-arrow" href="https://claude.ai/artifact/WLuy7P36AccgAXcU9SaKmm" aria-label="Ir para Configurações">
+  <button type="button" class="pager-arrow" id="pagerNext" aria-label="Próxima página">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-  </a>
+  </button>
 </nav>
+
+<script>
+(function(){
+  try{
+    var screens = { hub: document.getElementById('screen-hub'), config: document.getElementById('screen-config') };
+    var pagerPrev = document.getElementById('pagerPrev');
+    var pagerNext = document.getElementById('pagerNext');
+    var dots = document.querySelectorAll('.pager-dot');
+
+    function switchScreen(name, opts){
+      opts = opts || {};
+      if(!screens[name]) return;
+      Object.keys(screens).forEach(function(key){
+        screens[key].hidden = key !== name;
+      });
+      dots.forEach(function(d){
+        d.classList.toggle('active', d.getAttribute('data-screen') === name);
+      });
+      pagerPrev.classList.toggle('disabled', name === 'hub');
+      pagerNext.classList.toggle('disabled', name === 'config');
+      if(!opts.keepScroll){ window.scrollTo(0,0); }
+      if(opts.scrollToId){
+        var target = document.getElementById(opts.scrollToId);
+        if(target){
+          window.requestAnimationFrame(function(){
+            setTimeout(function(){ target.scrollIntoView({behavior:'smooth', block:'start'}); }, 60);
+          });
+        }
+      }
+    }
+    window.switchScreen = switchScreen;
+
+    pagerPrev.addEventListener('click', function(){ switchScreen('hub'); });
+    pagerNext.addEventListener('click', function(){ switchScreen('config'); });
+
+    var goToConfigBtn = document.getElementById('goToConfigBtn');
+    if(goToConfigBtn){
+      goToConfigBtn.addEventListener('click', function(){
+        switchScreen('config', { scrollToId: 'configs-fivem' });
+      });
+    }
+
+    if(location.hash === '#configs-fivem'){
+      switchScreen('config', { scrollToId: 'configs-fivem', keepScroll: true });
+    }
+  }catch(e){}
+})();
+</script>
 
 <script>
 (function(){
@@ -702,6 +934,112 @@
         editBtn.hidden = false;
         editBtn.addEventListener('click', function(){
           buildEditorRows(scheduleData.days);
+          setEditingUI(true);
+        });
+      } catch(e){}
+    }
+    init();
+  }catch(e){}
+})();
+</script>
+
+<script>
+(function(){
+  try{
+    function escapeHTML(str){
+      return String(str).replace(/[&<>"']/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+      });
+    }
+
+    var dataEl = document.getElementById('cfg-data');
+    var cfgData = JSON.parse(dataEl.textContent);
+    var PRISTINE_HTML = '<!doctype html>\n' + document.documentElement.outerHTML;
+
+    function renderRows(items){
+      return items.map(function(it){
+        var hasVal = it.value && it.value.trim();
+        var cls = 'v' + (hasVal ? '' : ' placeholder');
+        var text = hasVal ? escapeHTML(it.value) : 'a definir';
+        return '<div class="row"><span class="k">'+escapeHTML(it.label)+'</span><span class="'+cls+'">'+text+'</span></div>';
+      }).join('');
+    }
+
+    function paintCfg(items){
+      var rowsEl = document.getElementById('cfgRows');
+      rowsEl.innerHTML = '<!--CFG_ROWS_START-->' + renderRows(items) + '<!--CFG_ROWS_END-->';
+    }
+
+    paintCfg(cfgData.items);
+
+    function buildUpdatedHTML(newItems){
+      var newDataJSON = JSON.stringify({items:newItems});
+      var html = PRISTINE_HTML;
+      html = html.replace(
+        /(<script id="cfg-data" type="application\/json">)[\s\S]*?(<\/script>)/,
+        function(_, a, b){ return a + newDataJSON + b; }
+      );
+      html = html.replace(
+        /(<!--CFG_ROWS_START-->)[\s\S]*?(<!--CFG_ROWS_END-->)/,
+        function(_, a, b){ return a + renderRows(newItems) + b; }
+      );
+      return html;
+    }
+
+    var editBtn = document.getElementById('editCfgBtn');
+    var editor = document.getElementById('cfgEditor');
+    var rowsEl = document.getElementById('cfgRows');
+
+    function setEditingUI(open){
+      editor.hidden = !open;
+      rowsEl.style.display = open ? 'none' : '';
+    }
+
+    function buildEditorRows(items){
+      editor.innerHTML = items.map(function(it, i){
+        return '<div class="cfg-editor-row">'+
+          '<label>'+escapeHTML(it.label)+'</label>'+
+          '<input type="text" class="cfg-val" data-i="'+i+'" placeholder="a definir" value="'+escapeHTML(it.value||'')+'">'+
+        '</div>';
+      }).join('') +
+      '<div class="editor-actions">'+
+        '<button type="button" class="btn-ghost" id="cancelCfgBtn">Cancelar</button>'+
+        '<button type="button" class="btn-primary" id="saveCfgBtn">Salvar configs</button>'+
+      '</div>';
+
+      document.getElementById('cancelCfgBtn').addEventListener('click', function(){
+        setEditingUI(false);
+      });
+
+      document.getElementById('saveCfgBtn').addEventListener('click', async function(){
+        var newItems = cfgData.items.map(function(it, i){
+          var valEl = editor.querySelector('.cfg-val[data-i="'+i+'"]');
+          return { label: it.label, value: valEl.value.trim() };
+        });
+        var btn = document.getElementById('saveCfgBtn');
+        btn.disabled = true;
+        btn.textContent = 'Salvando...';
+        try{
+          var newHTML = buildUpdatedHTML(newItems);
+          var artifact = await claude.use('artifact');
+          if(!artifact){ throw new Error('no-artifact'); }
+          await artifact.publish(newHTML);
+        } catch(e){
+          btn.disabled = false;
+          btn.textContent = 'Salvar configs';
+          alert('Não deu pra salvar agora. Tenta de novo em alguns segundos.');
+        }
+      });
+    }
+
+    async function init(){
+      try{
+        var user = await claude.use('user');
+        var isOwner = !!(user && user.isOwner && user.isOwner());
+        if(!isOwner) return;
+        editBtn.hidden = false;
+        editBtn.addEventListener('click', function(){
+          buildEditorRows(cfgData.items);
           setEditingUI(true);
         });
       } catch(e){}

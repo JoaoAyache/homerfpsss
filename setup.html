@@ -302,7 +302,7 @@
     </div>
   </div>
 
-  <div>
+  <div id="configs-fivem">
     <div class="section-label section-row">
       <span>Configs de FiveM</span>
       <button class="edit-btn" id="editCfgBtn" type="button" hidden>
@@ -310,23 +310,33 @@
         Editar
       </button>
     </div>
-    <div class="rows" id="cfgRows"><!--CFG_ROWS_START-->
-      <div class="row"><span class="k">Sensibilidade</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">Resolução</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">Gráficos</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">Mira fixa</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">Mod de som</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">.cfg</span><span class="v placeholder">a definir</span></div>
-    <!--CFG_ROWS_END--></div>
+    <div class="rows" id="cfgRows"><!--CFG_ROWS_START--><div class="row"><span class="k">Sensibilidade</span><span class="v">800 dpi / -41</span></div><div class="row"><span class="k">Resolução</span><span class="v placeholder">a definir</span></div><div class="row"><span class="k">Gráficos</span><span class="v placeholder">a definir</span></div><div class="row"><span class="k">Mira fixa</span><span class="v placeholder">a definir</span></div><div class="row"><span class="k">Mod de som</span><span class="v placeholder">a definir</span></div><div class="row"><span class="k">.cfg</span><span class="v placeholder">a definir</span></div><!--CFG_ROWS_END--></div>
 
     <div class="cfg-editor" id="cfgEditor" hidden></div>
   </div>
 
-  <script id="cfg-data" type="application/json">{"items":[{"label":"Sensibilidade","value":""},{"label":"Resolução","value":""},{"label":"Gráficos","value":""},{"label":"Mira fixa","value":""},{"label":"Mod de som","value":""},{"label":".cfg","value":""}]}</script>
+  <script id="cfg-data" type="application/json">{"items":[{"label":"Sensibilidade","value":"800 dpi / -41"},{"label":"Resolução","value":""},{"label":"Gráficos","value":""},{"label":"Mira fixa","value":""},{"label":"Mod de som","value":""},{"label":".cfg","value":""}]}</script>
 
   <footer>Configurações atualizadas periodicamente — fica de olho.</footer>
 
 </div>
+
+<script>
+(function(){
+  try{
+    if(location.hash){
+      var target = document.querySelector(location.hash);
+      if(target){
+        window.requestAnimationFrame(function(){
+          setTimeout(function(){
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+          }, 80);
+        });
+      }
+    }
+  }catch(e){}
+})();
+</script>
 
 <nav class="pager" aria-label="Navegar entre páginas">
   <a class="pager-arrow" href="https://claude.ai/artifact/ENrmifVERvAGY1TpRboYVn" aria-label="Voltar pro hub">
