@@ -1,0 +1,225 @@
+<title>Setup HOMERFPSSS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Manrope:wght@400;500;600;700&family=Permanent+Marker&display=swap');
+
+  :root{
+    --bg-0:#0a0512;
+    --bg-1:#160a2b;
+    --bg-2:#22103f;
+    --surface:#1c0f37;
+    --surface-line:rgba(230,210,255,0.10);
+    --accent:#a855f7;
+    --accent-2:#e94ff0;
+    --accent-soft:rgba(168,85,247,0.16);
+    --text:#f5f1ff;
+    --text-muted:#b6a4dd;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(60% 50% at 15% 0%, rgba(233,79,240,0.20), transparent 60%),
+      radial-gradient(70% 60% at 100% 10%, rgba(168,85,247,0.22), transparent 55%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1) 45%, var(--bg-0) 100%);
+    background-color: var(--bg-0);
+    color:var(--text);
+    font-family:'Manrope', system-ui, sans-serif;
+    padding-inline:16px;
+    padding-block:28px 48px;
+    min-height:100%;
+    display:flex;
+    justify-content:center;
+  }
+
+  .page{width:100%; max-width:460px; display:flex; flex-direction:column; gap:26px;}
+
+  h1,h2{font-family:'Rajdhani', system-ui, sans-serif; margin:0; text-wrap:balance;}
+
+  .back{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:var(--text-muted);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    width:fit-content;
+  }
+  .back svg{width:14px;height:14px;}
+  .back:hover{color:var(--text);}
+
+  header.top{display:flex; flex-direction:column; gap:10px; align-items:center; text-align:center; padding-top:4px;}
+  .tag{
+    font-family:'Permanent Marker', cursive;
+    color:var(--accent-2);
+    font-size:15px;
+    transform:rotate(-3deg);
+  }
+  h1.title{
+    font-size:30px;
+    font-weight:700;
+  }
+  h1.title em{
+    font-style:normal;
+    background:linear-gradient(90deg, var(--accent-2), var(--accent));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .subtitle{color:var(--text-muted); font-size:13.5px; max-width:34ch;}
+
+  .note{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px 14px;
+    border-radius:14px;
+    background:var(--surface);
+    border:1px dashed rgba(230,210,255,0.18);
+    color:var(--text-muted);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .note svg{flex:none; width:16px; height:16px; margin-top:1px; color:var(--accent-2);}
+
+  .section-label{
+    font-family:'Rajdhani', system-ui, sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    padding-left:4px;
+    margin-bottom:10px;
+  }
+
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .item{
+    padding:14px;
+    border-radius:14px;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .item-icon{
+    width:30px;height:30px;
+    border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--accent-soft);
+    color:var(--accent-2);
+  }
+  .item-icon svg{width:16px;height:16px;}
+  .item-label{font-size:11.5px; color:var(--text-muted); font-weight:600;}
+  .item-value{font-size:13.5px; font-weight:700; color:var(--text);}
+  .item-value.placeholder{color:var(--text-muted); font-weight:600; font-style:italic;}
+
+  .rows{display:flex; flex-direction:column; gap:8px;}
+  .row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+  }
+  .row .k{font-size:13.5px; font-weight:600;}
+  .row .v{font-size:13px; color:var(--text-muted); text-align:right;}
+  .row .v.placeholder{font-style:italic;}
+
+  footer{
+    text-align:center;
+    color:var(--text-muted);
+    font-size:12px;
+    padding-top:4px;
+  }
+</style>
+
+<div class="page">
+
+  <a class="back" href="https://claude.ai/artifact/ENrmifVERvAGY1TpRboYVn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    voltar pro hub
+  </a>
+
+  <header class="top">
+    <span class="tag">homerps</span>
+    <h1 class="title">Minhas <em>configurações</em></h1>
+    <p class="subtitle">Setup, periféricos e configs de jogo que mais me perguntam na live.</p>
+  </header>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+    Página em montagem — os campos abaixo são exemplo de estrutura. Manda os valores reais (specs, periféricos, sensibilidade) que eu preencho certinho.
+  </div>
+
+  <div>
+    <div class="section-label">Setup (PC)</div>
+    <div class="grid">
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <span class="item-label">Processador</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 7V5M12 7V5M17 7V5"/></svg></span>
+        <span class="item-label">Placa de vídeo</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6"/></svg></span>
+        <span class="item-label">Memória RAM</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg></span>
+        <span class="item-label">Armazenamento</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">Periféricos</div>
+    <div class="grid">
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="3" width="10" height="18" rx="5"/><path d="M12 3v7"/></svg></span>
+        <span class="item-label">Mouse</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 11h.01M11 11h.01M15 11h.01M9 14h6"/></svg></span>
+        <span class="item-label">Teclado</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-1v-6h3M4 18v-5h3v6H5a2 2 0 0 1-2-2Z"/></svg></span>
+        <span class="item-label">Headset</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+      <div class="item">
+        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <span class="item-label">Monitor</span>
+        <span class="item-value placeholder">a definir</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">Configs de jogo</div>
+    <div class="rows">
+      <div class="row"><span class="k">Sensibilidade (DPI + in-game)</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">Resolução</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">Gráficos / FPS alvo</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">Crosshair / HUD</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">Keybinds principais</span><span class="v placeholder">a definir</span></div>
+    </div>
+  </div>
+
+  <footer>Configurações atualizadas periodicamente — fica de olho.</footer>
+
+</div>
