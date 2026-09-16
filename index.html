@@ -1,0 +1,414 @@
+<title>HOMERFPSSS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Manrope:wght@400;500;600;700&family=Permanent+Marker&display=swap');
+
+  :root{
+    --bg-0:#0a0512;
+    --bg-1:#160a2b;
+    --bg-2:#22103f;
+    --surface:#1c0f37;
+    --surface-line:rgba(230,210,255,0.10);
+    --accent:#a855f7;
+    --accent-2:#e94ff0;
+    --accent-soft:rgba(168,85,247,0.16);
+    --text:#f5f1ff;
+    --text-muted:#b6a4dd;
+    --live:#ff3366;
+    --tiktok:#25f4ee;
+    --kick:#53fc18;
+    --discord:#8ea1ff;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(60% 50% at 15% 0%, rgba(233,79,240,0.20), transparent 60%),
+      radial-gradient(70% 60% at 100% 10%, rgba(168,85,247,0.22), transparent 55%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1) 45%, var(--bg-0) 100%);
+    background-color: var(--bg-0);
+    color:var(--text);
+    font-family:'Manrope', system-ui, sans-serif;
+    padding-inline:16px;
+    padding-block:32px 48px;
+    min-height:100%;
+    display:flex;
+    justify-content:center;
+  }
+
+  .page{
+    width:100%;
+    max-width:440px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+  }
+
+  h1,h2,h3{font-family:'Rajdhani', system-ui, sans-serif; margin:0; text-wrap:balance;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    border-radius:22px;
+    padding:28px 22px 24px;
+    overflow:hidden;
+    background:linear-gradient(155deg, var(--bg-2) 0%, #2c1350 55%, #190a30 100%);
+    border:1px solid var(--surface-line);
+    box-shadow:0 30px 60px -30px rgba(168,85,247,0.45);
+  }
+  .hero::before,
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:auto;
+    background:linear-gradient(135deg, rgba(233,79,240,0.35), rgba(168,85,247,0));
+    filter:blur(0.5px);
+  }
+  .hero::before{
+    width:70%;
+    height:140%;
+    top:-40%;
+    right:-30%;
+    clip-path:polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
+    opacity:0.55;
+  }
+  .hero::after{
+    width:45%;
+    height:120%;
+    bottom:-30%;
+    left:-18%;
+    background:linear-gradient(135deg, rgba(168,85,247,0.28), rgba(168,85,247,0));
+    clip-path:polygon(20% 0, 100% 0, 80% 100%, 0% 100%);
+    opacity:0.5;
+  }
+
+  .badge-row{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow{
+    font-family:'Rajdhani', system-ui, sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:var(--text-muted);
+    text-transform:uppercase;
+  }
+  .status-pill{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:6px 12px;
+    border-radius:999px;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+    font-family:'Rajdhani', system-ui, sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:var(--text-muted);
+  }
+  .status-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--live);
+    box-shadow:0 0 0 0 rgba(255,51,102,0.6);
+    animation:pulse 2s infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .status-dot{animation:none;} }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,51,102,0.55);}
+    70%{box-shadow:0 0 0 8px rgba(255,51,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,51,102,0);}
+  }
+
+  .mark{
+    position:relative;
+    width:84px;height:84px;
+    margin:0 auto 16px;
+    border-radius:20px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(155deg, var(--accent), var(--accent-2));
+    box-shadow:0 18px 30px -14px rgba(233,79,240,0.55);
+  }
+  .mark span{
+    font-family:'Rajdhani', system-ui, sans-serif;
+    font-weight:700;
+    font-size:38px;
+    color:var(--bg-0);
+  }
+
+  .name{
+    position:relative;
+    text-align:center;
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    line-height:1;
+  }
+  .name em{
+    font-style:normal;
+    background:linear-gradient(90deg, var(--accent-2), var(--accent));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .tag{
+    position:relative;
+    text-align:center;
+    font-family:'Permanent Marker', cursive;
+    color:var(--accent-2);
+    font-size:17px;
+    margin-top:4px;
+    transform:rotate(-3deg);
+  }
+  .tagline{
+    position:relative;
+    text-align:center;
+    color:var(--text-muted);
+    font-size:14px;
+    margin-top:12px;
+    line-height:1.5;
+  }
+
+  /* ---------- SHARE BUTTON ---------- */
+  .share-btn{
+    position:relative;
+    margin:18px auto 0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid var(--surface-line);
+    background:rgba(255,255,255,0.03);
+    color:var(--text);
+    font-family:'Manrope', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    cursor:pointer;
+  }
+  .share-btn:hover{background:rgba(255,255,255,0.07);}
+  .share-btn svg{width:15px;height:15px;flex:none;}
+
+  /* ---------- SECTIONS ---------- */
+  .section-label{
+    font-family:'Rajdhani', system-ui, sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    padding-left:4px;
+  }
+
+  .links{display:flex; flex-direction:column; gap:12px;}
+  .link-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px;
+    border-radius:16px;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+    text-decoration:none;
+    color:var(--text);
+    transition:transform 0.15s ease, border-color 0.15s ease;
+  }
+  .link-card:hover{transform:translateY(-2px); border-color:rgba(230,210,255,0.25);}
+  .link-icon{
+    width:44px;height:44px;flex:none;
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,0.04);
+  }
+  .link-icon svg{width:22px;height:22px;}
+  .link-body{flex:1; min-width:0;}
+  .link-title{font-weight:700; font-size:15px;}
+  .link-sub{color:var(--text-muted); font-size:13px; margin-top:1px;}
+  .link-arrow{flex:none; color:var(--text-muted);}
+  .link-card.tiktok .link-icon svg{color:var(--tiktok);}
+  .link-card.kick .link-icon svg{color:var(--kick);}
+  .link-card.discord .link-icon svg{color:var(--discord);}
+
+  /* ---------- SCHEDULE ---------- */
+  .schedule{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    gap:6px;
+  }
+  .day{
+    text-align:center;
+    padding:10px 2px 8px;
+    border-radius:12px;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+    font-family:'Rajdhani', system-ui, sans-serif;
+  }
+  .day .d{font-size:11px; letter-spacing:0.08em; color:var(--text-muted); font-weight:700;}
+  .day.on{
+    background:linear-gradient(160deg, var(--accent-soft), rgba(233,79,240,0.08));
+    border-color:rgba(168,85,247,0.45);
+  }
+  .day.on .d{color:var(--text);}
+  .day .t{font-size:10px; color:var(--accent-2); font-weight:700; margin-top:4px; min-height:12px;}
+  .schedule-note{
+    font-size:12.5px;
+    color:var(--text-muted);
+    text-align:center;
+    margin-top:2px;
+  }
+
+  /* ---------- CLIPS ---------- */
+  .clips{display:flex; gap:12px; overflow-x:auto; padding-bottom:4px; scrollbar-width:thin;}
+  .clip{
+    flex:none;
+    width:130px;
+    aspect-ratio:9/16;
+    border-radius:14px;
+    border:1px dashed var(--surface-line);
+    background:linear-gradient(160deg, var(--surface), var(--bg-1));
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    color:var(--text-muted);
+    font-size:11.5px;
+    text-align:center;
+    padding:10px;
+  }
+  .clip svg{width:22px; height:22px; opacity:0.7;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;
+    color:var(--text-muted);
+    font-size:12px;
+    padding-top:4px;
+    line-height:1.7;
+  }
+  footer .sig{
+    font-family:'Permanent Marker', cursive;
+    color:var(--accent-2);
+    font-size:16px;
+    display:block;
+    margin-bottom:4px;
+  }
+</style>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="badge-row">
+      <span class="eyebrow">Base oficial</span>
+      <span class="status-pill"><span class="status-dot"></span>Confira a agenda ↓</span>
+    </div>
+
+    <div class="mark"><span>H</span></div>
+    <h1 class="name">HOMER<em>FPSSS</em></h1>
+    <div class="tag">homerps</div>
+    <p class="tagline">Live todo dia que dá jogo bom. Bora crescer essa comunidade junto.</p>
+
+    <button class="share-btn" id="shareBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.6" x2="15.4" y2="6.4"/><line x1="8.6" y1="13.4" x2="15.4" y2="17.6"/></svg>
+      <span id="shareLabel">Compartilhar essa página</span>
+    </button>
+  </div>
+
+  <div>
+    <div class="section-label" style="margin-bottom:10px;">Onde me achar</div>
+    <div class="links">
+      <a class="link-card tiktok" href="https://www.tiktok.com/@homerfpsss" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.78-1.47-1.9-1.6-3.14h-3.03v13.6c0 1.46-1.19 2.65-2.65 2.65a2.65 2.65 0 1 1 0-5.3c.25 0 .5.04.73.1V10.6a5.7 5.7 0 0 0-.73-.05 5.68 5.68 0 0 0 0 11.36 5.68 5.68 0 0 0 5.68-5.68V9.01a8.1 8.1 0 0 0 4.6 1.43V7.4a4.85 4.85 0 0 1-3-1.58Z"/></svg></span>
+        <span class="link-body">
+          <span class="link-title">TikTok</span>
+          <span class="link-sub">@homerfpsss</span>
+        </span>
+        <svg class="link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a class="link-card kick" href="https://kick.com/homerfpsss" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v5.2L12.5 4H17l-5.8 6.9L17.4 20h-4.6l-4.6-6.4L4 17.4V20H0V4h4Z" transform="translate(3.5 0) scale(0.85)"/></svg></span>
+        <span class="link-body">
+          <span class="link-title">Kick</span>
+          <span class="link-sub">kick.com/homerfpsss</span>
+        </span>
+        <svg class="link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a class="link-card discord" href="https://discord.gg/HurvK8VGa9" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 5.4A17 17 0 0 0 15.9 4l-.3.6a13 13 0 0 1 3.6 1.4c-2.6-1.3-5.6-1.9-8.6-1.4-.4 0-.9.1-1.3.2a12.8 12.8 0 0 0-1.3-.2l-.3-.6A17 17 0 0 0 3.7 5.4C1.6 8.7.9 11.9 1.2 15c1.6 1.2 3.5 2.1 5.5 2.6l.7-1.2c-.7-.3-1.4-.6-2.1-1 .2-.1.3-.2.5-.4 3.9 1.8 8.2 1.8 12 0l.5.4c-.7.4-1.4.7-2.1 1l.7 1.2c2-.5 3.9-1.4 5.5-2.6.4-3.9-.6-7-2.2-9.6ZM8.7 13.3c-.8 0-1.5-.8-1.5-1.7s.7-1.7 1.5-1.7 1.5.8 1.5 1.7-.7 1.7-1.5 1.7Zm6.6 0c-.8 0-1.5-.8-1.5-1.7s.7-1.7 1.5-1.7 1.5.8 1.5 1.7-.7 1.7-1.5 1.7Z"/></svg></span>
+        <span class="link-body">
+          <span class="link-title">Discord</span>
+          <span class="link-sub">Entra pra conversar</span>
+        </span>
+        <svg class="link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label" style="margin-bottom:10px;">Agenda da semana</div>
+    <div class="schedule">
+      <div class="day"><div class="d">SEG</div><div class="t"></div></div>
+      <div class="day"><div class="d">TER</div><div class="t"></div></div>
+      <div class="day"><div class="d">QUA</div><div class="t"></div></div>
+      <div class="day"><div class="d">QUI</div><div class="t"></div></div>
+      <div class="day"><div class="d">SEX</div><div class="t"></div></div>
+      <div class="day"><div class="d">SAB</div><div class="t"></div></div>
+      <div class="day"><div class="d">DOM</div><div class="t"></div></div>
+    </div>
+    <p class="schedule-note">Agenda em atualização — entra no Discord pra ser avisado quando eu for ao vivo.</p>
+  </div>
+
+  <div>
+    <div class="section-label" style="margin-bottom:10px;">Clipes em destaque</div>
+    <div class="clips">
+      <div class="clip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 9v6l5-3Z" fill="currentColor" stroke="none"/></svg>
+        Em breve
+      </div>
+      <div class="clip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 9v6l5-3Z" fill="currentColor" stroke="none"/></svg>
+        Em breve
+      </div>
+      <div class="clip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 9v6l5-3Z" fill="currentColor" stroke="none"/></svg>
+        Em breve
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="sig">homerps</span>
+    Feito pra crescer junto com a comunidade.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  try{
+    var btn = document.getElementById('shareBtn');
+    var label = document.getElementById('shareLabel');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var url = window.location.href;
+      var shareData = { title:'HOMERFPSSS', text:'Me segue nas lives!', url:url };
+      if(navigator.share){
+        navigator.share(shareData).catch(function(){});
+      } else if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){
+          var prev = label.textContent;
+          label.textContent = 'Link copiado!';
+          setTimeout(function(){ label.textContent = prev; }, 1800);
+        }).catch(function(){});
+      }
+    });
+  }catch(e){}
+})();
+</script>
