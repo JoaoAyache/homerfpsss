@@ -118,6 +118,73 @@
   .row .v{font-size:13px; color:var(--text-muted); text-align:right;}
   .row .v.placeholder{font-style:italic;}
 
+  /* ---------- CONFIG EDIT ---------- */
+  .section-row{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+  .edit-btn{
+    display:inline-flex; align-items:center; gap:5px;
+    padding:5px 10px;
+    border-radius:999px;
+    border:1px solid var(--surface-line);
+    background:rgba(255,255,255,0.03);
+    color:var(--text-muted);
+    font-family:'Manrope', sans-serif;
+    font-weight:600;
+    font-size:11px;
+    cursor:pointer;
+  }
+  .edit-btn:hover{background:rgba(255,255,255,0.07); color:var(--text);}
+  .edit-btn svg{width:12px;height:12px;}
+
+  .cfg-editor{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:8px;
+  }
+  .cfg-editor-row{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    align-items:center;
+    gap:10px;
+    padding:4px 2px;
+  }
+  .cfg-editor-row label{
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--text);
+  }
+  .cfg-editor-row input[type="text"]{
+    width:100%;
+    padding:8px 10px;
+    border-radius:9px;
+    border:1px solid var(--surface-line);
+    background:var(--surface);
+    color:var(--text);
+    font-family:'Manrope', sans-serif;
+    font-size:12.5px;
+  }
+  .cfg-editor-row input[type="text"]::placeholder{color:rgba(182,164,221,0.45);}
+  .editor-actions{display:flex; gap:10px; margin-top:6px;}
+  .btn-primary, .btn-ghost{
+    flex:1;
+    padding:10px;
+    border-radius:12px;
+    border:none;
+    font-family:'Manrope', sans-serif;
+    font-weight:700;
+    font-size:13px;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--accent), var(--accent-2));
+    color:var(--bg-0);
+  }
+  .btn-ghost{
+    background:rgba(255,255,255,0.05);
+    color:var(--text-muted);
+    border:1px solid var(--surface-line);
+  }
+
   footer{
     text-align:center;
     color:var(--text-muted);
@@ -236,15 +303,26 @@
   </div>
 
   <div>
-    <div class="section-label">Configs de jogo</div>
-    <div class="rows">
-      <div class="row"><span class="k">Sensibilidade (DPI + in-game)</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">Resolução</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">Gráficos / FPS alvo</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">Crosshair / HUD</span><span class="v placeholder">a definir</span></div>
-      <div class="row"><span class="k">Keybinds principais</span><span class="v placeholder">a definir</span></div>
+    <div class="section-label section-row">
+      <span>Configs de FiveM</span>
+      <button class="edit-btn" id="editCfgBtn" type="button" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Editar
+      </button>
     </div>
+    <div class="rows" id="cfgRows"><!--CFG_ROWS_START-->
+      <div class="row"><span class="k">Sensibilidade</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">Resolução</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">Gráficos</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">Mira fixa</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">Mod de som</span><span class="v placeholder">a definir</span></div>
+      <div class="row"><span class="k">.cfg</span><span class="v placeholder">a definir</span></div>
+    <!--CFG_ROWS_END--></div>
+
+    <div class="cfg-editor" id="cfgEditor" hidden></div>
   </div>
+
+  <script id="cfg-data" type="application/json">{"items":[{"label":"Sensibilidade","value":""},{"label":"Resolução","value":""},{"label":"Gráficos","value":""},{"label":"Mira fixa","value":""},{"label":"Mod de som","value":""},{"label":".cfg","value":""}]}</script>
 
   <footer>Configurações atualizadas periodicamente — fica de olho.</footer>
 
@@ -262,3 +340,109 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
   </span>
 </nav>
+
+<script>
+(function(){
+  try{
+    function escapeHTML(str){
+      return String(str).replace(/[&<>"']/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+      });
+    }
+
+    var dataEl = document.getElementById('cfg-data');
+    var cfgData = JSON.parse(dataEl.textContent);
+    var PRISTINE_HTML = '<!doctype html>\n' + document.documentElement.outerHTML;
+
+    function renderRows(items){
+      return items.map(function(it){
+        var hasVal = it.value && it.value.trim();
+        var cls = 'v' + (hasVal ? '' : ' placeholder');
+        var text = hasVal ? escapeHTML(it.value) : 'a definir';
+        return '<div class="row"><span class="k">'+escapeHTML(it.label)+'</span><span class="'+cls+'">'+text+'</span></div>';
+      }).join('');
+    }
+
+    function paintCfg(items){
+      var rowsEl = document.getElementById('cfgRows');
+      rowsEl.innerHTML = '<!--CFG_ROWS_START-->' + renderRows(items) + '<!--CFG_ROWS_END-->';
+    }
+
+    paintCfg(cfgData.items);
+
+    function buildUpdatedHTML(newItems){
+      var newDataJSON = JSON.stringify({items:newItems});
+      var html = PRISTINE_HTML;
+      html = html.replace(
+        /(<script id="cfg-data" type="application\/json">)[\s\S]*?(<\/script>)/,
+        function(_, a, b){ return a + newDataJSON + b; }
+      );
+      html = html.replace(
+        /(<!--CFG_ROWS_START-->)[\s\S]*?(<!--CFG_ROWS_END-->)/,
+        function(_, a, b){ return a + renderRows(newItems) + b; }
+      );
+      return html;
+    }
+
+    var editBtn = document.getElementById('editCfgBtn');
+    var editor = document.getElementById('cfgEditor');
+    var rowsEl = document.getElementById('cfgRows');
+
+    function setEditingUI(open){
+      editor.hidden = !open;
+      rowsEl.style.display = open ? 'none' : '';
+    }
+
+    function buildEditorRows(items){
+      editor.innerHTML = items.map(function(it, i){
+        return '<div class="cfg-editor-row">'+
+          '<label>'+escapeHTML(it.label)+'</label>'+
+          '<input type="text" class="cfg-val" data-i="'+i+'" placeholder="a definir" value="'+escapeHTML(it.value||'')+'">'+
+        '</div>';
+      }).join('') +
+      '<div class="editor-actions">'+
+        '<button type="button" class="btn-ghost" id="cancelCfgBtn">Cancelar</button>'+
+        '<button type="button" class="btn-primary" id="saveCfgBtn">Salvar configs</button>'+
+      '</div>';
+
+      document.getElementById('cancelCfgBtn').addEventListener('click', function(){
+        setEditingUI(false);
+      });
+
+      document.getElementById('saveCfgBtn').addEventListener('click', async function(){
+        var newItems = cfgData.items.map(function(it, i){
+          var valEl = editor.querySelector('.cfg-val[data-i="'+i+'"]');
+          return { label: it.label, value: valEl.value.trim() };
+        });
+        var btn = document.getElementById('saveCfgBtn');
+        btn.disabled = true;
+        btn.textContent = 'Salvando...';
+        try{
+          var newHTML = buildUpdatedHTML(newItems);
+          var artifact = await claude.use('artifact');
+          if(!artifact){ throw new Error('no-artifact'); }
+          await artifact.publish(newHTML);
+        } catch(e){
+          btn.disabled = false;
+          btn.textContent = 'Salvar configs';
+          alert('Não deu pra salvar agora. Tenta de novo em alguns segundos.');
+        }
+      });
+    }
+
+    async function init(){
+      try{
+        var user = await claude.use('user');
+        var isOwner = !!(user && user.isOwner && user.isOwner());
+        if(!isOwner) return;
+        editBtn.hidden = false;
+        editBtn.addEventListener('click', function(){
+          buildEditorRows(cfgData.items);
+          setEditingUI(true);
+        });
+      } catch(e){}
+    }
+    init();
+  }catch(e){}
+})();
+</script>
