@@ -373,6 +373,10 @@
     width:130px;
     aspect-ratio:9/16;
     border-radius:14px;
+    position:relative;
+    overflow:hidden;
+  }
+  .clip.placeholder{
     border:1px dashed var(--surface-line);
     background:linear-gradient(160deg, var(--surface), var(--bg-1));
     display:flex;
@@ -385,7 +389,23 @@
     text-align:center;
     padding:10px;
   }
-  .clip svg{width:22px; height:22px; opacity:0.7;}
+  .clip.placeholder svg{width:22px; height:22px; opacity:0.7;}
+  .clip.filled{
+    display:block;
+    border:1px solid var(--surface-line);
+    text-decoration:none;
+    color:inherit;
+  }
+  .clip.filled img{width:100%; height:100%; object-fit:cover; display:block;}
+  .clip-play{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(180deg, rgba(10,5,18,0) 55%, rgba(10,5,18,0.62) 100%);
+  }
+  .clip-play svg{width:32px; height:32px; color:#fff; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.45));}
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -656,15 +676,19 @@
   <div>
     <div class="section-label">Clipes em destaque</div>
     <div class="clips">
-      <div class="clip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 9v6l5-3Z" fill="currentColor" stroke="none"/></svg>
-        Em breve
-      </div>
-      <div class="clip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 9v6l5-3Z" fill="currentColor" stroke="none"/></svg>
-        Em breve
-      </div>
-      <div class="clip">
+      <a class="clip filled" href="https://www.tiktok.com/@homerfpsss/video/7669683875785854228" target="_blank" rel="noopener">
+        <img src="/_blob/4425d6630b834a698b3b395eb726b180" alt="Clipe em destaque">
+        <span class="clip-play">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+        </span>
+      </a>
+      <a class="clip filled" href="https://www.tiktok.com/@homerfpsss/video/7634292065358105876" target="_blank" rel="noopener">
+        <img src="/_blob/19524ac8a3a55c9c4abe4e7ca9a947a2" alt="Clipe em destaque">
+        <span class="clip-play">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+        </span>
+      </a>
+      <div class="clip placeholder">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 9v6l5-3Z" fill="currentColor" stroke="none"/></svg>
         Em breve
       </div>
