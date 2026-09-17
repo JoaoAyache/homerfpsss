@@ -505,6 +505,12 @@
     white-space:nowrap;
   }
   .periph-buy svg{width:13px; height:13px;}
+  .periph-card.placeholder{
+    border:1px dashed var(--surface-line);
+    background:linear-gradient(160deg, var(--surface), var(--bg-1));
+  }
+  .periph-card.placeholder .item-icon{flex:none;}
+  .periph-name.placeholder-text{color:var(--text-muted); font-weight:600; font-style:italic;}
 
   .rows{display:flex; flex-direction:column; gap:8px;}
   .row{
@@ -717,26 +723,53 @@
 
   <div>
     <div class="section-label">Setup (PC)</div>
-    <div class="grid">
-      <div class="item">
-        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span>
-        <span class="item-label">Processador</span>
-        <span class="item-value placeholder">a definir</span>
+    <div class="periph-grid">
+      <div class="periph-card">
+        <div class="periph-photo"><img src="/_blob/6f6b60fd84371209b7330d786a69bac1" alt="Processador Intel Core i9-14900K"></div>
+        <div class="periph-info">
+          <span class="periph-role">Processador</span>
+          <span class="periph-name">Intel Core i9-14900K (14ª geração)</span>
+        </div>
+        <a class="periph-buy" href="https://www.bestbuy.com/product/intel-core-i9-14900k-14th-gen-24-core-32-thread-4-4ghz-6-0ghz-turbo-socket-lga-1700-unlocked-desktop-processor-multi/JXZRJ5572H/sku/12122508" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          Comprar
+        </a>
       </div>
-      <div class="item">
+      <div class="periph-card">
+        <div class="periph-photo"><img src="/_blob/6cbd60077c48e98d36fd8c93306a1c28" alt="Placa-mãe MSI MAG Z790 Tomahawk WiFi"></div>
+        <div class="periph-info">
+          <span class="periph-role">Placa-mãe</span>
+          <span class="periph-name">MSI MAG Z790 Tomahawk WiFi</span>
+        </div>
+        <a class="periph-buy" href="https://www.msi.com/Motherboard/MAG-Z790-TOMAHAWK-WIFI" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          Comprar
+        </a>
+      </div>
+      <div class="periph-card">
+        <div class="periph-photo"><img src="/_blob/f47079b861726b36d06a4f94f08e6c74" alt="Memória RAM Kingston Fury Beast DDR5 32GB"></div>
+        <div class="periph-info">
+          <span class="periph-role">Memória RAM</span>
+          <span class="periph-name">Kingston Fury Beast DDR5 32GB 5600MHz RGB</span>
+        </div>
+        <a class="periph-buy" href="https://www.kabum.com.br/produto/1044982/memoria-ram-kingston-fury-beast-ddr5-32gb-5600mhz-rgb-preto-kf556c36bbea-32-" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          Comprar
+        </a>
+      </div>
+      <div class="periph-card placeholder">
         <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 7V5M12 7V5M17 7V5"/></svg></span>
-        <span class="item-label">Placa de vídeo</span>
-        <span class="item-value placeholder">a definir</span>
+        <div class="periph-info">
+          <span class="periph-role">Placa de vídeo</span>
+          <span class="periph-name placeholder-text">a definir</span>
+        </div>
       </div>
-      <div class="item">
-        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6"/></svg></span>
-        <span class="item-label">Memória RAM</span>
-        <span class="item-value placeholder">a definir</span>
-      </div>
-      <div class="item">
+      <div class="periph-card placeholder">
         <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg></span>
-        <span class="item-label">Armazenamento</span>
-        <span class="item-value placeholder">a definir</span>
+        <div class="periph-info">
+          <span class="periph-role">Armazenamento</span>
+          <span class="periph-name placeholder-text">a definir</span>
+        </div>
       </div>
     </div>
   </div>
