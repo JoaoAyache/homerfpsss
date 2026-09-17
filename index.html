@@ -452,6 +452,40 @@
   .item-value{font-size:13.5px; font-weight:700; color:var(--text);}
   .item-value.placeholder{color:var(--text-muted); font-weight:600; font-style:italic;}
 
+  .periph-grid{display:flex; flex-direction:column; gap:10px;}
+  .periph-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:12px;
+    border-radius:16px;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+  }
+  .periph-photo{
+    width:60px; height:60px; flex:none;
+    border-radius:12px;
+    background:#fff;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .periph-photo img{width:100%; height:100%; object-fit:contain;}
+  .periph-info{flex:1; min-width:0; display:flex; flex-direction:column; gap:2px;}
+  .periph-role{font-size:11px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.04em;}
+  .periph-name{font-size:13.5px; font-weight:700; color:var(--text); line-height:1.3;}
+  .periph-buy{
+    flex:none;
+    display:flex; align-items:center; gap:5px;
+    padding:9px 13px;
+    border-radius:11px;
+    background:linear-gradient(135deg, var(--accent), var(--accent-2));
+    color:var(--bg-0);
+    font-size:12px; font-weight:700;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .periph-buy svg{width:13px; height:13px;}
+
   .rows{display:flex; flex-direction:column; gap:8px;}
   .row{
     display:flex;
@@ -685,26 +719,50 @@
 
   <div>
     <div class="section-label">Periféricos</div>
-    <div class="grid">
-      <div class="item">
-        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="3" width="10" height="18" rx="5"/><path d="M12 3v7"/></svg></span>
-        <span class="item-label">Mouse</span>
-        <span class="item-value placeholder">a definir</span>
+    <div class="periph-grid">
+      <div class="periph-card">
+        <div class="periph-photo"><img src="/_blob/3f18f6a5d6918cebfa38b44e9e939149" alt="Teclado SteelSeries Apex Pro Mini Gen3"></div>
+        <div class="periph-info">
+          <span class="periph-role">Teclado</span>
+          <span class="periph-name">SteelSeries Apex Pro Mini Gen3</span>
+        </div>
+        <a class="periph-buy" href="https://doctormouse.com.br/produtos/steelseries-apex-pro-mini-gen3/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          Comprar
+        </a>
       </div>
-      <div class="item">
-        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 11h.01M11 11h.01M15 11h.01M9 14h6"/></svg></span>
-        <span class="item-label">Teclado</span>
-        <span class="item-value placeholder">a definir</span>
+      <div class="periph-card">
+        <div class="periph-photo"><img src="/_blob/f0c9425313bfb6b7da40475be38a5b22" alt="Mouse Logitech G PRO X Superlight 2"></div>
+        <div class="periph-info">
+          <span class="periph-role">Mouse</span>
+          <span class="periph-name">Logitech G PRO X Superlight 2</span>
+        </div>
+        <a class="periph-buy" href="https://doctormouse.com.br/produtos/logitech-g-pro-x-superlight-2-s6vrx/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          Comprar
+        </a>
       </div>
-      <div class="item">
-        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-1v-6h3M4 18v-5h3v6H5a2 2 0 0 1-2-2Z"/></svg></span>
-        <span class="item-label">Headset</span>
-        <span class="item-value placeholder">a definir</span>
+      <div class="periph-card">
+        <div class="periph-photo"><img src="/_blob/1387b92bb0bec8f6195414702540d8c1" alt="Headset Logitech G PRO X 2 Lightspeed"></div>
+        <div class="periph-info">
+          <span class="periph-role">Headset</span>
+          <span class="periph-name">Logitech G PRO X 2 Lightspeed</span>
+        </div>
+        <a class="periph-buy" href="https://doctormouse.com.br/produtos/logitech-g-pro-x-2-lightspeed-headset-zd9m3/?variant=1475830451" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          Comprar
+        </a>
       </div>
-      <div class="item">
-        <span class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span>
-        <span class="item-label">Monitor</span>
-        <span class="item-value placeholder">a definir</span>
+      <div class="periph-card">
+        <div class="periph-photo"><img src="/_blob/64ab2a68a253c507224d201b44e10a1d" alt="Mousepad Fallen Spirit Dragon"></div>
+        <div class="periph-info">
+          <span class="periph-role">Mousepad</span>
+          <span class="periph-name">Fallen Spirit Dragon</span>
+        </div>
+        <a class="periph-buy" href="https://www.fallenstore.com.br/mousepad-gamer-fallen-spirit-dragon" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          Comprar
+        </a>
       </div>
     </div>
   </div>
