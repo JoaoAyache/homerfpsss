@@ -27,8 +27,8 @@ As páginas rodam como [Claude Artifacts](https://claude.ai) (link privado até 
 
 ## Fluxo de atualização
 
-1. Peça a mudança numa conversa com o Claude (no app Claude/Cowork)
-2. O Claude edita o HTML e republica o Artifact correspondente
+1. Peça a mudança numa conversa com o  (/Cowork)
+2. edita o HTML e republica o Artifact correspondente
 3. O arquivo atualizado chega nessa pasta local
 4. Revise as mudanças no GitHub Desktop, escreva um resumo e dê **Commit** + **Push**
 
